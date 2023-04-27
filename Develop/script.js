@@ -34,6 +34,22 @@ var questions = [
 
 function letsgo () {
   startbtn.style.display = "none"
+  // need to display questions
+
+  //timer starts
+  timerInterval = setInterval(function() {
+    timeLeft--;
+    quizTimer.textContent = "Time left: " + timeLeft;
+
+    if(timeLeft === 0) {
+      clearInterval(timerInterval);
+      showScore();
+    }
+  }, 1000);
+quizBody.style.display = "block";
+}
+
+  return;
 }
 
 
