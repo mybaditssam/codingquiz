@@ -36,7 +36,7 @@ var questions = [
 
 function letsgo () {
   startbtn.style.display = "none"
-  // need to display questions
+  // need to figure this SHIT OUT BRUH display questions
 
   //timer starts
   timerInterval = setInterval(function() {
