@@ -1,6 +1,8 @@
 var questiondisplay = document.querySelector("#quizpage")
 var welcomepage = document.querySelector("#welcomepage")
 var startbtn = document.querySelector("#startbtn")
+var quizTimer = document.querySelector("#timer")
+var timeLeft = 60;
 
 console.log(startbtn)
 
@@ -43,13 +45,9 @@ function letsgo () {
 
     if(timeLeft === 0) {
       clearInterval(timerInterval);
-      showScore();
+      // Need to create function -> showScore();
     }
   }, 1000);
-quizBody.style.display = "block";
-}
-
-  return;
 }
 
 
