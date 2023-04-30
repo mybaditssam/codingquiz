@@ -10,16 +10,36 @@
     <header>
       <h1> Coding Quiz</h1>
     </header>
+    
       <div id="welcomepage">
         <button id="startbtn">Start Quiz</button>
       </div>
 
+      <main id="quiz">
+        <div id="questions"><p>Question goes here</p></div>
+        <div id="answerbtns">
+          <button id="a" onclick="checkAnswer('a')">A</button>
+          <button id="b" onclick="checkAnswer('b')">B</button>
+          <button id="c" onclick="checkAnswer('c')">C</button>
+          <button id="d" onclick="checkAnswer('d')">D</button>
+          <div id="result"></div>
+        </div>
+        
+        
+
+        <div id="gameovermessage">
+          <div id="score"></div>
+        </div>
+
+
+      </main>
+
       <div id="quizpage">
-        <span id=timer>You have this much time left: </span>
+        <span id=timer>Time Left: </span>
         
       </div>
       
       </main>
       <script src="./Develop/script.js"></script>
   </body>
-</html>
+</html

@@ -1,16 +1,18 @@
 * {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: black;
 }
 
 
 h1 {
-    color: lightcoral;
+    color: white;
+    text-decoration: double;
     text-align: center;
     margin-top: 350px;
 }
 
 #startbtn {
-    background-color: black;
+    background-color: lightcoral;
     color: white;
     padding: 10px;
     position: absolute;
@@ -20,5 +22,20 @@ h1 {
 
 span {
     position: absolute;
+    color: violet;
     top:0;
+}
+
+#answerbtns button {
+    background-color: lightcoral;
+    box-shadow: 1px 2px 2px lightslategray;
+    color: white;
+}
+
+#questions {
+    color: white
+}
+
+#result {
+    color: white;
 }
