@@ -1,6 +1,6 @@
 * {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: black;
+    background: lightslategray;
 }
 
 
@@ -15,15 +15,16 @@ h1 {
     background-color: lightcoral;
     color: white;
     padding: 10px;
-    position: absolute;
+    position: relative;
     top: 40%;
     left: 48%;
 }
 
-span {
-    position: absolute;
-    color: violet;
-    top:0;
+#timer {
+    color: black;
+    text-align: center;
+    margin-bottom: 200px;
+    font-size: 30px;
 }
 
 #answerbtns button {
@@ -37,5 +38,16 @@ span {
 }
 
 #result {
-    color: white;
+    color: black;
+    font-size: 25px;
+}
+
+#quiz {
+    text-align: center;
+    margin-top:200px;
+    display: none;
+}
+
+#gameoverDiv {
+    display: none;
 }

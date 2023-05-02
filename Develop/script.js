@@ -1,18 +1,21 @@
 // All global variables
-var questiondisplay = document.querySelector("#quizpage");
-var welcomepage = document.querySelector("#welcomepage");
-var startbtn = document.querySelector("#startbtn");
-var quizTimer = document.querySelector("#timer");
+var questiondisplay = document.querySelector('#quizpage');
+var welcomepage = document.querySelector('#welcomepage');
+var startbtn = document.getElementById('startbtn');
+var quizTimer = document.querySelector('#timer');
+var finalScore = document.querySelector('finalScore')
+var highscoreInput = document.getElementById('initials')
 var timeLeft = 60;
 var codingquiztitle = document.querySelector('h1');
 var btnA = document.getElementById('a');
 var btnB = document.getElementById('b');
 var btnC = document.getElementById('c');
 var btnD = document.getElementById('d');
-var quizmain = document.getElementById('quiz');
+var quizMain = document.getElementById('quiz');
 var score = 0;
 var result = document.getElementById('result')
 var correct;
+var gameover = document.getElementById('gameoverDiv')
 
 //console log to check if selectors are working
 console.log(startbtn);
@@ -29,7 +32,7 @@ var questions = [
   },
   {
     question: 'What is the correct syntax for a JavaScript comment?',
-    answer1: '<!--This is a comment-->',
+    answer1: '!--This is a comment--',
     answer2: '//This is a comment',
     answer3: '/*This is a comment*/',
     answer4: '#This is a comment',
@@ -72,6 +75,8 @@ var questions = [
 var lastquestion = questions.length;
 var questionON = 0;
 var questiontext = document.getElementById('questions');
+// will keep track of user highscores
+let highScores = [];
 
 function displayquestion () {
   var currentQuestion = questions[questionON];
@@ -81,7 +86,6 @@ function displayquestion () {
   btnB.innerHTML = currentQuestion.answer2;
   btnC.innerHTML = currentQuestion.answer3;
   btnD.innerHTML = currentQuestion.answer4;
-  correct = currentQuestion.correctAnswer;
 }
 
 // hides h1, Start Quiz btn && begins quiz/timer
@@ -89,7 +93,7 @@ function letsgo () {
   startbtn.style.display = 'none'
   codingquiztitle.style.display ='none'
   displayquestion();
-  quizmain.style.display = 'block';
+ 
 
   timerInterval = setInterval(function() {
     timeLeft--;
@@ -97,9 +101,18 @@ function letsgo () {
 
     if(timeLeft === 0) {
       clearInterval(timerInterval);
-      // Need to create function -> showScore();
+      showScore();
     }
   }, 1000);
+  quizMain.style.display = 'block'
+}
+
+function showScore(){
+  quizMain.style.display = 'none';
+  gameover.style.display = 'flex';
+  clearInterval(timerInterval);
+  highscoreInput.value = '';
+  finalScore.textContent =  score + " out of " + questions.length + 'questions correct';
 }
 
 function checkAnswer(answer) {
@@ -108,20 +121,23 @@ function checkAnswer(answer) {
   var correct = currentQuestion.correctAnswer;
   console.log(correct)
 
-  if (answer === correct && questionON !== lastquestion - 1){
+  if (answer.textContent === correct && questionON !== lastquestion - 1){
     score++;
-    result.textContent = ('you are Correct!')
+      result.textContent ='You are Correct!'
+      result.setAttribute('style','color:lightgreen')
     questionON++;
-    displayquestion();
+    displayquestion()
   } 
-    else if (answer !== correct && questionON !== lastquestion - 1){
-      result.textContent ='You are Incorrect'
+    else if (answer.textContent !== correct && questionON !== lastquestion - 1){
+        result.textContent ='You are Incorrect'
+        result.setAttribute('style','color:red')
+      timeLeft -= 5;
     questionON++;
     displayquestion();
   
   } 
     else {
-    result.textContent = 'You are Incorrect'
+    showScore()
     clearInterval(timerInterval);
     
   }

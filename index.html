@@ -16,28 +16,26 @@
       </div>
 
       <main id="quiz">
+        <div id=timer>Time Left: </div>
         <div id="questions"><p>Question goes here</p></div>
         <div id="answerbtns">
-          <button id="a" onclick="checkAnswer('a')">A</button>
-          <button id="b" onclick="checkAnswer('b')">B</button>
-          <button id="c" onclick="checkAnswer('c')">C</button>
-          <button id="d" onclick="checkAnswer('d')">D</button>
+          <button id="a" onclick="checkAnswer(btnA)">A</button>
+          <button id="b" onclick="checkAnswer(btnB)">B</button>
+          <button id="c" onclick="checkAnswer(btnC)">C</button>
+          <button id="d" onclick="checkAnswer(btnD)">D</button>
           <div id="result"></div>
         </div>
         
         
 
-        <div id="gameovermessage">
-          <div id="score"></div>
+        <div id="gameoverDiv">
+          <div id="finalScore"></div>
+            <input type="text" size = "40" placeholder="Add your intials and submit high score" name="intials" id="initials"/>
+            <button id="submitScore">Submit</button>
         </div>
 
 
       </main>
-
-      <div id="quizpage">
-        <span id=timer>Time Left: </span>
-        
-      </div>
       
       </main>
       <script src="./Develop/script.js"></script>
