@@ -2,13 +2,13 @@
 This is a simple quiz web application built with HTML, CSS, and JavaScript.
 
 ## Table of Contents
-Introduction
-Technologies
-Getting Started
-Features
-Screenshots
-Contributing
-License
+- Introduction
+- Technologies
+- Getting Started
+- Features
+- Screenshots
+- Contributing
+- License
 
 ## Introduction
 This application allows users to take a timed quiz and records their score. It consists of a welcome page with a "Start Quiz" button, a quiz page that displays questions and answer options, a timer, and an input form for users to enter their initials after completing the quiz. The application also includes a highscore page that shows the top 5 scores.
