@@ -39,7 +39,10 @@ Users can view the top 5 scores on the highscore page.
 
 
 ## Screenshots
-
+<img width="1726" alt="Screenshot 2023-05-02 at 9 57 43 PM" src="https://user-images.githubusercontent.com/127529427/235820112-f8413a52-fb55-45be-b134-e40b99a7fa1e.png">
+<img width="1728" alt="Screenshot 2023-05-02 at 9 57 53 PM" src="https://user-images.githubusercontent.com/127529427/235820202-b692dd7a-ceac-43b6-93c4-c5f592a564a5.png">
+<img width="1725" alt="Screenshot 2023-05-02 at 9 58 00 PM" src="https://user-images.githubusercontent.com/127529427/235820210-f5cb5ba2-1b28-4e3f-b25d-1b48406d9085.png">
+<img width="1726" alt="Screenshot 2023-05-02 at 9 59 02 PM" src="https://user-images.githubusercontent.com/127529427/235820221-523fd26f-6f7f-46b3-9b08-9e3f05fb8dc9.png">
 
 ## Contributing
 Contributions are welcome. Please submit a pull request if you would like to contribute to this project.
