@@ -25,19 +25,22 @@
           <button id="d" onclick="checkAnswer(btnD)">D</button>
           <div id="result"></div>
         </div>
-        
-        
-
-        <div id="gameoverDiv">
-          <div id="finalScore"></div>
-            <input type="text" size = "40" placeholder="Add your intials and submit high score" name="intials" id="initials"/>
-            <button id="submitScore">Submit</button>
-        </div>
-
-
       </main>
+      <div id="gameoverDiv">
+        <h2>Game Over!</h2>
+        <p>Your final score is: <span id="finalScore"></span></p>
+        <form>
+          <label for="initials">Enter initials:</label>
+          <input type="text" id="initials" name="initials" maxlength="3">
+          <button id="submitScore" type="submit">Submit</button>
+        </form>
+      </div>
+        <div id='highscore'>
+        <p id="result"></p>
+        <ul id="highscoresList"></ul>
+      </div>
       
-      </main>
+      
       <script src="./Develop/script.js"></script>
   </body>
 </html

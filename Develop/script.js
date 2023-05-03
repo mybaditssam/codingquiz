@@ -3,7 +3,7 @@ var questiondisplay = document.querySelector('#quizpage');
 var welcomepage = document.querySelector('#welcomepage');
 var startbtn = document.getElementById('startbtn');
 var quizTimer = document.querySelector('#timer');
-var finalScore = document.querySelector('finalScore')
+var finalScore = document.querySelector('#finalScore')
 var highscoreInput = document.getElementById('initials')
 var timeLeft = 60;
 var codingquiztitle = document.querySelector('h1');
@@ -16,11 +16,11 @@ var score = 0;
 var result = document.getElementById('result')
 var correct;
 var gameover = document.getElementById('gameoverDiv')
+var timerInterval;
+var submitScoreBtn = document.getElementById('submitScore')
+var highscoresDiv = document.getElementById('highscore')
 
-//console log to check if selectors are working
-console.log(startbtn);
-
-
+//question objects with answer options and correct answer
 var questions = [
   {
     question: 'What is JavaScript?',
@@ -71,16 +71,15 @@ var questions = [
     correctAnswer: 'for'
   }
 ];
-
+// global variables needed
 var lastquestion = questions.length;
 var questionON = 0;
 var questiontext = document.getElementById('questions');
-// will keep track of user highscores
 let highScores = [];
 
+// Function Displays question
 function displayquestion () {
   var currentQuestion = questions[questionON];
-  console.log(currentQuestion)
   questiontext.innerHTML = '<p>' + currentQuestion.question + '</p>';
   btnA.innerHTML = currentQuestion.answer1;
   btnB.innerHTML = currentQuestion.answer2;
@@ -88,10 +87,11 @@ function displayquestion () {
   btnD.innerHTML = currentQuestion.answer4;
 }
 
-// hides h1, Start Quiz btn && begins quiz/timer
+// Function hides h1, Start Quiz btn && begins quiz/timer
 function letsgo () {
   startbtn.style.display = 'none'
   codingquiztitle.style.display ='none'
+  gameover.style.display = 'none'
   displayquestion();
  
 
@@ -107,19 +107,11 @@ function letsgo () {
   quizMain.style.display = 'block'
 }
 
-function showScore(){
-  quizMain.style.display = 'none';
-  gameover.style.display = 'flex';
-  clearInterval(timerInterval);
-  highscoreInput.value = '';
-  finalScore.textContent =  score + " out of " + questions.length + 'questions correct';
-}
-
+// function to check for right answer, and if right answer chosen, display message
 function checkAnswer(answer) {
   var currentQuestion = questions[questionON];
-  console.log (currentQuestion)
   var correct = currentQuestion.correctAnswer;
-  console.log(correct)
+  
 
   if (answer.textContent === correct && questionON !== lastquestion - 1){
     score++;
@@ -134,14 +126,37 @@ function checkAnswer(answer) {
       timeLeft -= 5;
     questionON++;
     displayquestion();
-  
   } 
     else {
     showScore()
-    clearInterval(timerInterval);
-    
   }
 }
 
-
 startbtn.addEventListener('click', letsgo)
+
+// function to hide quiz and display score
+function showScore(){
+  quizMain.style.display = 'none';
+  gameover.style.display = 'block'; gameover.style.textAlign ='center';
+  clearInterval(timerInterval);
+  finalScore.textContent =  score + " out of " + questions.length + ' questions correct';
+  // saves to local database
+  var scores = JSON.parse(localStorage.getItem("scores")) || [];
+  scores.push({initials: highscoreInput.value, score: score});
+  localStorage.setItem("scores", JSON.stringify(scores));
+}
+
+// event listener to the submitScoreBtn button
+submitScoreBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  var initials = highscoreInput.value;
+  var newScore = document.createElement('li');
+  newScore.textContent = initials + ': ' + score;
+
+  var highScoresList = document.getElementById('highscoresList');
+  highScoresList.appendChild(newScore);
+  
+  document.querySelector('form').style.display = 'none';
+  highScoresList.style.display = 'block';
+});
