@@ -45,7 +45,10 @@ Users can view the top 5 scores on the highscore page.
 <img width="1726" alt="Screenshot 2023-05-02 at 9 59 02 PM" src="https://user-images.githubusercontent.com/127529427/235820221-523fd26f-6f7f-46b3-9b08-9e3f05fb8dc9.png">
 
 ## Contributing
-Contributions are welcome. Please submit a pull request if you would like to contribute to this project.
+Created by @mybaditssam 
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more information.
+
+## Deployed Site
+https://mybaditssam.github.io/codingquiz/
