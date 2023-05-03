@@ -8,6 +8,7 @@ This is a simple quiz web application built with HTML, CSS, and JavaScript.
 - Features
 - Screenshots
 - Contributing
+- Deployed Application
 - License
 
 ## Introduction
